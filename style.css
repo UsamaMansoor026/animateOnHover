@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #22396b;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  background-color: #344280;
+  padding: 9px 20px;
+  border-radius: 10px;
+}
+
+ul li {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  transition: 300ms;
+  position: relative;
+  cursor: pointer;
+}
+
+li > span {
+  font-size: 40px;
+  width: 70px;
+  height: 70px;
+  transition: 500ms;
+  background: linear-gradient(to right, #6dbfc9, #6d7ec9);
+  border-radius: 50%;
+  padding: 12px;
+  padding-left: 9px;
+  transform: translateY(-30px);
+  display: block;
+  padding-left: 14px;
+}
+
+ul li:hover {
+  transform-style: preserve-3d;
+  perspective: 200px;
+}
+
+ul li:hover span {
+  animation: bounce 0.7s cubic-bezier(0.8, 0.54, 0.28, 0.73);
+  filter: drop-shadow(0 0 19px rgba(255, 255, 255, 0.8));
+}
+
+ul li:hover::after {
+  display: block;
+  transition-delay: 100ms;
+}
+
+ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+  display: none;
+  transition: 400ms;
+}
+
+ul li:nth-of-type(1)::after {
+  content: "Home";
+}
+ul li:nth-of-type(2)::after {
+  content: "Smily";
+}
+ul li:nth-of-type(3)::after {
+  content: "Headset";
+}
+ul li:nth-of-type(4)::after {
+  content: "Heart";
+}
+ul li:nth-of-type(5)::after {
+  content: "Football";
+}
+
+.copyright {
+  position: absolute;
+  bottom: 20px;
+  color: #ffffff69;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  70% {
+    transform: translateY(-100px);
+    transform: translate(30px, -50px, -80px);
+  }
+
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+@media (max-width: 520px) {
+  li > span {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+}
